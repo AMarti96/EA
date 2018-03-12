@@ -1,0 +1,12 @@
+<h1>Login</h1>
+<div layout="column" flex id="content" ng-controller="mainCtrl">
+        <div layout="row" layout-align="center center" layout-fill>
+
+            <form ng-submit="doLogin()">
+                    <input ng-model="login" placeholder="Your name">
+                    <input ng-model="password" type="password" placeholder="Your password">
+                <br>
+                <input class ="button" type="submit" value="Login">
+            </form>
+        </div>
+</div>

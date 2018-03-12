@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Todas las asignaturas</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-row *ngFor="let row of grid" no-margin="" no-padding="">
+    <ion-card>
+      <ion-item>
+        <h2>Nombre: {{row.name}}</h2>
+        <p>Estudiantes: {{row.slength}}</p>
+      </ion-item>
+    </ion-card>
+  </ion-row>
+</ion-content>

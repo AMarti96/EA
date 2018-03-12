@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Detalle Student</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-row>
+    <ion-card *ngIf="card!=false">
+      <ion-item>
+        <h2>Nombre: {{name}}  Contraseña:{{pass}}</h2>
+      </ion-item>
+    </ion-card>
+    <ion-card *ngFor="let row of grid" no-margin="" no-padding="">
+      <ion-item>
+        <h2>Asignatura: {{row.namesub}}</h2>
+      </ion-item>
+    </ion-card>
+  </ion-row>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-input type="text"  [(ngModel)]="filterDB" placeholder="Escribir estudiante para ver su detalle"></ion-input>
+    <button ion-button round (click)="filter()">
+      <ion-icon name="send"></ion-icon>
+       Detalle
+    </button>
+  </ion-toolbar>
+</ion-footer>
+

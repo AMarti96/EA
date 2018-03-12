@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Detalle asignatura</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>Asignaturas</ion-label>
+    <ion-select [(ngModel)]="subName" interface="action-sheet">
+      <ion-option value="IOT">IOT</ion-option>
+      <ion-option value="PX">PX</ion-option>
+      <ion-option value="PE">PE</ion-option>
+      <ion-option value="XT">XT</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-row *ngFor="let row of grid" no-margin="" no-padding="">
+    <ion-item>
+      <h2>Nombre: {{row.name}}</h2>
+      <p>Estudiantes: {{row.slength}}</p>
+      <p>Periodo en el que se imparte: {{row.period}}</p>
+    </ion-item>
+  </ion-row>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <div text-center=""><button ion-button full (click)="filter();">Filtrar por asignatura</button> </div>
+  </ion-toolbar>
+</ion-footer>

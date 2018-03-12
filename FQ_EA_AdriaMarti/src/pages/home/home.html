@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Todos los alumnos</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-row *ngFor="let row of grid" no-margin="" no-padding="">
+    <ion-card>
+      <ion-item>
+        <h2>{{row.name}}</h2>
+        <p>{{row.password}}</p>
+      </ion-item>
+      <ion-card-content>
+        <ion-card-title>
+          {{row.studies}}
+        </ion-card-title>
+      </ion-card-content>
+    </ion-card>
+  </ion-row>
+</ion-content>

@@ -1,0 +1,110 @@
+<!doctype html>
+<body ng-controller="userCtrl">
+<div onload="showSubjects()">
+    <ul class="unstyled">
+        <li ng-repeat="user in users | filter:search">
+            <label class="checkbox">
+                <input type="checkbox" ng-model="user.done">
+                <span class="done-{{user.done}}">Name: {{user.name}} Password: {{user.password}} Studies: {{user.studies}}</span>
+            </label>
+        </li>
+    </ul>
+    <ul class="unstyled">
+        <li ng-repeat="subject in subjectsdb">
+            <label>
+                <span>Name: {{subject.name}} Users: {{subject.slength}}</span>
+            </label>
+        </li>
+    </ul>
+    <br><br>
+    <table id="searchTextResults">
+        <tr>
+            <th>Name</th>
+        </tr>
+        <tr ng-repeat="user in students">
+            <td>{{user.name}}</td>
+        </tr>
+    </table>
+    <input type="text" ng-model="filterDB" size="30"
+           placeholder="Search student in database">
+    <input type="text" ng-model="search.name" size="30"
+           placeholder="Search">
+
+
+  <!--
+        <button class ="button" ng-click="update()">Update User</button>
+        <button class ="button" ng-click="remove()">Remove</button>
+  -->
+    <select ng-model="subjectName">
+        <option value="">Asignaturas</option>
+        <option ng-repeat="subject in subjectsname"> {{subject.name}}</option>
+    </select>
+    <select ng-model="titulName">
+        <option value="">Titulaciones</option>
+        <option>Telematica</option>
+        <option>Sistemas</option>
+        <option>Aeros</option>
+    </select>
+    <button class ="button" ng-click="showList()">Show Students List in Order</button>
+    <button class ="button" ng-click="filterdb()">Filter by letter</button>
+    <button class ="button" ng-click="getsub()">Get students in a subject</button>
+    <button class ="button" ng-click="gettit()">Get students in a studie</button>
+    <button class ="button" ng-click="showSubjects()">Show Subjects in order</button>
+    <button class ="button" ng-click="detailsub()">Ver detalle asignatura</button>
+
+    <br><br><br>
+    <form ng-submit="studentDetail()">
+        <input type="text" ng-model="stuName" size="30"
+               placeholder="Student Name">
+        <input class ="button" type="submit" value="Student Detail">
+    </form>
+    <ul class="unstyled">
+        <label>
+        <span ng-if="student.name!=undefined">Nombre: {{student.name}} Contraseña: {{student.pass}}</span>
+        </label>
+        <li ng-repeat="stu in student.sub">
+            <label>
+                <span>Subject: {{stu.namesub}}</span>
+            </label>
+        </li>
+
+    </ul>
+
+    <ul class="unstyled">
+        <li ng-repeat="subject2 in subjectsdb2">
+            <label>
+                <span>Name: {{subject2.name}} Estudiantes: {{subject2.slength}} Periodo en el que se imparte: {{subject2.period}}</span>
+            </label>
+        </li>
+    </ul>
+    <form ng-submit="userAdd()">
+        <input type="text" ng-model="userName" size="30"
+               placeholder="Add name">
+        <input type="password" ng-model="userPass" size="30"
+               placeholder="Add pass">
+        <input type="password" ng-model="newPass" size="30"
+               placeholder="New password">
+        <input class ="button" type="submit" value="Add user">
+    </form>
+    <form ng-submit="updatesub()">
+        <input type="text" ng-model="userName2" size="30" placeholder="Name of the user">
+        <select ng-model="subjectName" >
+            <option ng-repeat="subject in subjectsname"> {{subject.name}}</option>
+        </select>
+        <input class ="button" type="submit" value="Add to Subject">
+    </form>
+    <form ng-submit="addsub()">
+        <input type="text" ng-model="sbName" size="30"
+               placeholder="Name new subject">
+        <select ng-model="sbPeriod" >
+            <option>Primavera 2016</option>
+            <option>Tardor 2016</option>
+            <option>Primavera 2017</option>
+            <option>Tardor 2016</option>
+            <option>Primavera 2018</option>
+        </select>
+        <input class ="button" type="submit" value="Añadir asignatura">
+    </form>
+</div>
+</body>
+</html>

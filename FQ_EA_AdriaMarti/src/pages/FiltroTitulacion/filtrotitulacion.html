@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Filtro titulación</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>Titulaciones</ion-label>
+    <ion-select [(ngModel)]="titulName" interface="action-sheet">
+      <ion-option value="Telematica">Telematica</ion-option>
+      <ion-option value="Sistemas">Sistemas</ion-option>
+      <ion-option value="Aeros">Aeros</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-row *ngFor="let row of grid" no-margin="" no-padding="">
+    <ion-card>
+      <ion-item>
+        <h2>{{row.name}}</h2>
+      </ion-item>
+    </ion-card>
+  </ion-row>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <div text-center=""><button ion-button full (click)="filter();">Filtrar por titulación</button> </div>
+  </ion-toolbar>
+</ion-footer>
